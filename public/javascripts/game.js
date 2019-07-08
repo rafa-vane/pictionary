@@ -18,7 +18,6 @@ class Game {
     this.canvasImg = document.getElementById("canvasImg")
     this.intervalId = undefined;
     this.dataURL = undefined
-
   }
 
 
