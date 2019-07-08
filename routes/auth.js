@@ -33,7 +33,8 @@ router.post("/signup", uploadCloud.single('photo'), (req, res, next) => {
     return;
   }
 
-  User.findOne({ username }, "username", (err, user) => {
+  User
+  .findOne({ username }, "username", (err, user) => {
     if (user !== null) {
       res.render("auth/signup", { message: "The username already exists" });
       return;
@@ -61,6 +62,7 @@ router.post("/signup", uploadCloud.single('photo'), (req, res, next) => {
       })
   });
 });
+
 
 router.get("/logout", (req, res) => {
   req.logout();
