@@ -15,7 +15,10 @@ class Game {
     this.dataURL = undefined
     this.x = "black";
     this.y = 2;
-    this.canvasImg = document.getElementById("canvasimg")
+    this.canvasImg = document.getElementById("canvasImg")
+    this.intervalId = undefined;
+    this.dataURL = undefined
+
   }
 
 
@@ -28,9 +31,11 @@ class Game {
     this.eventListers()
     this.draw()
     this.color()
-    this.erase()
-    this.save()
     this.findxy()
+    this.erase()
+    this.intervalId = setInterval(() => {
+      this.save()
+    }, 1000 / 60)
   }
 
   eventListers = () => {
@@ -50,33 +55,14 @@ class Game {
   }
 
 
-  color = (obj) => {
-    switch (obj.id) {
-      case "green":
-        this.x = "green";
-        break;
-      case "blue":
-        this.x = "blue";
-        break;
-      case "red":
-        this.x = "red";
-        break;
-      case "yellow":
-        this.x = "yellow";
-        break;
-      case "orange":
-        this.x = "orange";
-        break;
-      case "black":
-        this.x = "black";
-        break;
-      case "white":
-        this.x = "white";
-        break;
-    }
-    if (this.x == "white") this.y = 14;
-    else this.y = 2;
-
+  color = () => {
+    document.getElementById("green").onclick = () => {this.x = "green"; this.y = 2}
+    document.getElementById("blue").onclick = () => {this.x = "blue"; this.y = 2}
+    document.getElementById("red").onclick = () => {this.x = "red"; this.y = 2}
+    document.getElementById("yellow").onclick = () => {this.x = "yellow"; this.y = 2}
+    document.getElementById("orange").onclick = () => {this.x = "orange"; this.y = 2}
+    document.getElementById("black").onclick = () => {this.x = "black"; this.y = 2}
+    document.getElementById("white").onclick = () => {this.x = "white"; this.y = 20}  
   }
 
   draw = () => {
@@ -90,19 +76,21 @@ class Game {
   }
 
   erase = () => {
-    var m = confirm("Want to clear");
-    if (m) {
-      this.ctx.clearRect(0, 0, w, h);
+    document.getElementById("clr").onclick = () => {
+      let m = confirm("Want to clear");
+      if (m) {
+      this.ctx.clearRect(0, 0, this.canvasW, this.canvasH);
       this.canvasImg.style.display = "none";
-    }
+    }}
   }
 
   save = () => {
-    this.canvasImg.style.border = "2px solid";
-    this.dataURL = this.canvasDOMEl.toDataURL();
-    this.canvasImg.src = this.dataURL;
-    this.canvasImg.style.display = "inline";
+    document.getElementById("canvasImg").style.border = "2px solid";
+      this.dataURL = this.canvasDOMEl.toDataURL();
+      document.getElementById("canvasImg").src = this.dataURL;
+      document.getElementById("canvasImg").style.display = "inline";
   }
+  
 
   findxy = (res, e) => {
     if (res == 'down') {

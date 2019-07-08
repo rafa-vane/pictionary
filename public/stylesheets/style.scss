@@ -6,3 +6,10 @@ body {
 a {
   color: #00B7FF;
 }
+
+.colorButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
