@@ -5,6 +5,7 @@ body {
 a {
   color: #00B7FF; }
 
+
 nav {
   display: flex;
   justify-content: flex-end;
@@ -77,5 +78,6 @@ nav a::after {
 .items {
   display: flex;
   flex-direction: row; }
+
 
 /*# sourceMappingURL=style.css.map */
