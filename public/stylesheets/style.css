@@ -5,4 +5,77 @@ body {
 a {
   color: #00B7FF; }
 
+nav {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 20px; }
+
+nav a::after {
+  margin-right: 50px;
+  margin-left: 50px;
+  content: "|"; }
+
+.inicio {
+  background: url("../images/portada.jpg");
+  background-repeat: no-repeat;
+  background-size: 100vw 100vh; }
+
+.inicio h1 {
+  font-size: 100px;
+  float: right;
+  padding-top: 90px;
+  margin-right: 300px; }
+
+.text {
+  font-size: 50px;
+  float: right;
+  margin-right: 20px; }
+
+#form-container {
+  width: 50%;
+  height: 200px;
+  position: absolute;
+  top: 45%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px; }
+
+.box {
+  margin-bottom: 10px;
+  text-align: center; }
+
+.photo {
+  border-radius: 150px;
+  height: 300px;
+  width: 300px; }
+
+.button {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: .5rem .75rem;
+  font-size: 1rem;
+  line-height: 1.25;
+  border-radius: .25rem;
+  transition: all .15s ease-in-out; }
+
+.containerGame {
+  text-align: center;
+  font-size: 30px;
+  display: flex; }
+
+.items {
+  display: flex;
+  flex-direction: row; }
+
 /*# sourceMappingURL=style.css.map */
