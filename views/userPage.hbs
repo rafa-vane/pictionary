@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="/javascripts/game.js"></script>
+  <script src="/javascripts/startGame.js"></script>
+</head>
+
+<body>
+
+
+  {{user.username}}
+
+  <img src="{{user.picture.imgPath}}" alt="{{user.picture.decription}}" srcset="" height="30vh" width="30vw">
+
+
+  <section>
+    <canvas id="canvas" style="position:absolute;top:30%;left:30%;border:2px solid;"></canvas>
+    <div style="position:absolute;top:12%;left:43%;">Choose Color</div>
+    <div style="position:absolute;top:15%;left:45%;width:10px;height:10px;background:green;" id="green"
+      onclick="color(this)"></div>
+    <div style="position:absolute;top:15%;left:46%;width:10px;height:10px;background:blue;" id="blue"
+      onclick="color(this)"></div>
+    <div style="position:absolute;top:15%;left:47%;width:10px;height:10px;background:red;" id="red"
+      onclick="color(this)">
+    </div>
+    <div style='position:absolute;top:17%;left:45%;width:10px;height:10px;background:yellow;' id='yellow'
+      onclick='color(this)'></div>
+    <div style="position:absolute;top:17%;left:46%;width:10px;height:10px;background:orange;" id="orange"
+      onclick="color(this)"></div>
+    <div style="position:absolute;top:17%;left:47%;width:10px;height:10px;background:black;" id="black"
+      onclick="color(this)"></div>
+    <div style="position:absolute;top:20%;left:43%;">Eraser</div>
+    <div style="position:absolute;top:22%;left:45%;width:15px;height:15px;background:white;border:2px solid;" id="white"
+      onclick="color(this)"></div>
+    <img id="canvasimg" style="position:absolute;top:10%;left:52%;" style="display:none;">
+    <input type="button" value="save" id="btn" size="30" onclick="save()" style="position:absolute;top:55%;left:10%;">
+    <input type="button" value="clear" id="clr" size="23" onclick="erase()" style="position:absolute;top:55%;left:15%;">
+
+
+    <button id="start-button">StartGame</button>
+  </section>
+</body>
+
+</html>
