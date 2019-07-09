@@ -100,7 +100,8 @@ label {
 .containerGame {
   text-align: center;
   font-size: 30px;
-  display: flex; }
+  display: flex;
+  justify-content: center; }
 
 .items {
   display: flex;
@@ -138,11 +139,12 @@ label {
   display: flex; }
 
 button {
+  margin-top: 10px;
   background: grey;
   color: white;
   transition: all 0.5s; }
 
 button:hover {
-  color: #00B7FF; }
+  background: #00B7FF; }
 
 /*# sourceMappingURL=style.css.map */
