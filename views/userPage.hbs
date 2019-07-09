@@ -12,21 +12,25 @@
 
 <body>
 
-<div class="profile">
-   <div>
-  <img class="photo" src="{{user.picture.imgPath}}" alt="{{user.picture.decription}}" srcset="" >
-</div>
-<div class="subitem">
-  <div class="user">
-  <h2>Hi {{user.username}}!!</h2>
-</div>
-<div>
- <a href="/gamePage"><button class="button" id="start-button">Start Game</button></a>
-</div>
-</div>
-
-</div>
-
+  <div class="profile">
+    <div>
+      <img class="photo" src="{{user.picture.imgPath}}" alt="{{user.picture.decription}}" srcset="">
+    </div>
+    <div class="subitem">
+      <div class="user">
+        <h2>Hi {{user.username}}!!</h2>
+      </div>
+    </div>
+    <div>
+      <form action="/gamePage" method="POST" id="form-container">
+      <p>Player 1</p>
+      <input type="text" name="player1" id="player1" value="{{user.username}}" disabled="disabled">
+      <p>Player 2</p>
+        <input type="text" name="player2" id="player2">
+        <button class="button" id="start-button" type="submit">Start Game</button>
+      </form>
+    </div>
+  </div>
 </body>
 
 </html>

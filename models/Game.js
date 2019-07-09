@@ -2,14 +2,10 @@ const mongoose = require('mongoose');
 const Schema   = mongoose.Schema;
 
 const gameSchema = new Schema({
-  playername1: String,
-  playername2: String,
-
-  
-
-  winner: String,
-  loser: String,
-
+  player1: {},
+  player2: {},
+  winner: String
+  // loser: String,
 }, {
   timestamps: {
     createdAt: 'created_at',
