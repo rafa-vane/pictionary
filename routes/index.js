@@ -12,6 +12,7 @@ router.get('/userPage', (req, res, next) => {
 });
 
 router.get(('/gamePage'),(req, res, next) =>{
+
   res.render('gamePage');
 })
 
