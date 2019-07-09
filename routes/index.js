@@ -11,23 +11,21 @@ router.get('/userPage', (req, res, next) => {
   res.render('userPage', { user: req.user });
 });
 
-router.get(('/game-page'),(req, res, next) =>{
-  res.render('game-page');
+router.get(('/gamePage'),(req, res, next) =>{
+  res.render('gamePage');
 })
 
-// router.post("/game-page"),(req, res, next) => {
+// router.post("/gamePage"),(req, res, next) => {
 //   Game
 //   .create({
     
 //   })
 //   .then(()=>{
-//      res.render("/game-page")
+//      res.render("/gamePage")
 //   })
 //   .catch((err) =>console.log(err))
 
 // }
-
-
 
 
 module.exports = router;

@@ -4,7 +4,13 @@ const Schema   = mongoose.Schema;
 const userSchema = new Schema({
   username: String,
   password: String,
-  picture: {  title: String,
+  games:{
+    totalGames: Number,
+    wins: Number,
+    defeats:Number,
+  },
+  picture: {  
+    title: String,
     description: String,
     imgName: String,
     imgPath: String,}
