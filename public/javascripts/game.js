@@ -20,8 +20,6 @@ class Game {
     this.dataURL = undefined
   }
 
-
-
   init = () => {
     this.canvasDOMEl = document.getElementById("canvas")
     this.ctx = this.canvasDOMEl.getContext("2d")
@@ -121,4 +119,8 @@ class Game {
       }
     }
   }
+
+  
 }
+
+

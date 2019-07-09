@@ -11,8 +11,9 @@ router.get('/userPage', (req, res, next) => {
   res.render('userPage', { user: req.user });
 });
 
-router.get(('/game-page'),(req, res, next) =>{
-  res.render('game-page');
+router.get(('/gamePage'),(req, res, next) =>{
+  
+  res.render('gamePage');
 })
 
 // router.post("/game-page"),(req, res, next) => {
