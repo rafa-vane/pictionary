@@ -1,4 +1,7 @@
 
+* {
+  box-sizing: border-box;
+}
 
 body {
   padding: 50px;
@@ -6,7 +9,17 @@ body {
 }
 
 a {
+  text-decoration: none;
+  color:black;
+  transition: all 0.5s;
+}
+
+a:hover {
   color: #00B7FF;
+}
+a:last-child::after {
+  margin-left: 10px;
+  content: "";
 }
 
 
@@ -28,36 +41,52 @@ nav a::after {
   background-size: 100vw 100vh;
 }
 .inicio h1{
+  color: gray;
   font-size: 100px;
   float:right;
   padding-top: 90px;
   margin-right: 300px;
+  -webkit-text-stroke: 2px black;
+  
 }
 .text{
   font-size: 50px;
   float:right;
   margin-right: 20px;
+  color: gray;
+  -webkit-text-stroke: 2px black;
 
 }
-
-#form-container{
-    // background-color: rgba(238, 238, 238, 0.972);
-    width: 50%;
-    height: 200px;
-    position: absolute;
-    top: 45%;
-    left: 55%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 30px;
-   
+h2{
+  font-size: 45px;
+  color: gray;
+  -webkit-text-stroke: 2px black;
 }
+#form-container {
+position: absolute;
+top: 25%;
+left: 45%;
+width: 300px;
+display: flex;
+flex-direction: column;
+height: 20px;
+text-align: center;
+}
+
+label{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+:placeholder-shown{
+  text-align: center;
+}
+
 .box{
   margin-bottom: 10px;
+  margin-top:10px; 
   text-align: center;
-  
 } 
 
 .photo{
@@ -65,6 +94,7 @@ nav a::after {
   height: 300px;
   width: 300px;
 }
+
 .button{
   display: inline-block;
   font-weight: 400;
@@ -87,13 +117,70 @@ nav a::after {
   text-align: center;
   font-size: 30px;
   display: flex;
-}
-.items{
-  display: flex;
-  flex-direction: row;
-   
+  justify-content: center;
 }
 
+.items{
+  display: flex;
+  justify-content: space-between;
+  align-content: space-between;   
+}
+
+.colors{
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+  font-size: 20px;
+  display: flex;
+  align-content: space-between;
+}
+
+#canvas{
+
+  border: 1px solid black;
+}
+
+.players{
+  width: 250px;
+  border: 3px solid black;
+}
+.letter{
+  display: flex;
+  justify-content: center;
+
+}
+
+#start-button{
+  width: 100px;
+  height: 50px;
+  border-radius: 20px;
+  font-size:15px;
+  background:grey;
+  color:white;
+}
+
+
+button{
+  margin-top: 10px;
+  background: grey;
+  color:white;
+  transition: all 0.5s;
+}
+
+button:hover{
+  background:  #00B7FF;
+}
+.profile{
+  display: flex;
+  margin-top: 50px;
+}
+.subitem{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 600px;
+}
 
 
 

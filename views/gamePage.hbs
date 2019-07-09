@@ -2,38 +2,47 @@
 <script src="/javascripts/game.js"></script>
 <script src="/javascripts/startGame.js"></script>
 
-<div>
-<h2>What is this?</h2>
+
+<div class="letter">
+<h2>WHAT IS THIS??</h2>
 </div>
 <div class="containerGame">
   
-<div class="items">
+<div class= "players" "items" >
+
   <span>Player 1</span> 
   </div>
 
 <div class="items">
 
-   <canvas id="canvas" style="position:absolute;top:30%;left:30%;border:2px solid;"></canvas>
-    <div class="colorButtons">
-    <div>Choose Color</div>
-    <div style="background:green;" id="green"><h6>Green</h6></div>
-    <div style="background:blue;" id="blue"><h6>Blue</h6></div>
-    <div style="background:red;" id="red"><h6>Red</h6></div>
-    <div style='background:yellow;' id='yellow'><h6>Yellow</h6></div>
-    <div style="background:orange;" id="orange"><h6>Orange</h6></div>
-    <div style="background:black;" id="black"><h6>Black</h6></div>
-    <div style="background:grey" id="white">Eraser</div>
-  
+  <div class="colum">
+   <canvas id="canvas"></canvas>
+   <div><img id="canvasImg" style="display:none;"></div>
+   </div>
+   <div>
+    <div class="colum">
+    <div class="colors">Choose Color</div>
+    <div class="colors" style="background:green;" id="green"></div>
+    <div class="colors" style="background:blue;" id="blue"></div>
+    <div class="colors" style="background:red;" id="red"></div>
+    <div class="colors" style='background:yellow;' id='yellow'></div>
+    <div class="colors" style="background:orange;" id="orange"></div>
+    <div class="colors" style="background:black;" id="black"></div>
+    <div class="colors" style="background:grey" id="white">Eraser</div>
+   </div>
     
-    <div id="clr"><h3>Clear All</h3></div>
-    <button id="start-button">StartGame</button>
-  
+    <div class="colors" id="clr"><h3>Clear All</h3></div>
+    <button class="button" id="start-button">Start Game</button>
+
+   
+
   </div>
 
-  <div><img id="canvasImg" style="position:absolute;top:60%;left:30%;" style="display:none;"></div>
+
+<div class= "players" "items">
 
 
-<div class="items">
+
   <span>Player 2</span> 
   </div>
 

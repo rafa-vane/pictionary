@@ -12,23 +12,21 @@ router.get('/userPage', (req, res, next) => {
 });
 
 router.get(('/gamePage'),(req, res, next) =>{
-  
+
   res.render('gamePage');
 })
 
-// router.post("/game-page"),(req, res, next) => {
+// router.post("/gamePage"),(req, res, next) => {
 //   Game
 //   .create({
     
 //   })
 //   .then(()=>{
-//      res.render("/game-page")
+//      res.render("/gamePage")
 //   })
 //   .catch((err) =>console.log(err))
 
 // }
-
-
 
 
 module.exports = router;

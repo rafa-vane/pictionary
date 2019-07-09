@@ -12,13 +12,19 @@
 
 <body>
 
-<div>
+<div class="profile">
+   <div>
+  <img class="photo" src="{{user.picture.imgPath}}" alt="{{user.picture.decription}}" srcset="" >
+</div>
+<div class="subitem">
   <div class="user">
   <h2>Hi {{user.username}}!!</h2>
 </div>
 <div>
-  <img class="photo" src="{{user.picture.imgPath}}" alt="{{user.picture.decription}}" srcset="" >
+ <a href="/gamePage"><button class="button" id="start-button">Start Game</button></a>
 </div>
+</div>
+
 </div>
 
 </body>
