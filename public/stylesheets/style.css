@@ -135,9 +135,6 @@ label {
   background: grey;
   color: white; }
 
-.perfil {
-  display: flex; }
-
 button {
   margin-top: 10px;
   background: grey;
@@ -146,5 +143,16 @@ button {
 
 button:hover {
   background: #00B7FF; }
+
+.profile {
+  display: flex;
+  margin-top: 50px; }
+
+.subitem {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 600px; }
 
 /*# sourceMappingURL=style.css.map */
