@@ -9,7 +9,13 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/userPage', (req, res, next) => {
-  res.render('userPage', { user: req.user });
+  Game
+    .find({ id: req.user.invitedGames })
+    .then((allGamesInvited) => {
+      res.render('userPage', { user: req.user, allGamesInvited })
+      console.log("ritaaaaaaaaa")
+      console.log(allGamesInvited)
+    })
 });
 
 router.get(('/gamePage/:id'), (req, res, next) => {
@@ -19,6 +25,7 @@ router.get(('/gamePage/:id'), (req, res, next) => {
     .populate('guest')
     .then(game => {
       console.log(game)
+
       res.render('gamePage', { game });
     })
 
