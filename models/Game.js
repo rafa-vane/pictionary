@@ -2,10 +2,12 @@ const mongoose = require('mongoose');
 const Schema   = mongoose.Schema;
 
 const gameSchema = new Schema({
-  player1: {},
-  player2: {},
-  winner: String
-  // loser: String,
+  participants:{ 
+    creator: {},
+    guest:{}
+  },
+  winner: String,
+  state: {type:String, enum:["active","inactive"], default:"inactive"}
 }, {
   timestamps: {
     createdAt: 'created_at',

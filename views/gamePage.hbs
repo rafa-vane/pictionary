@@ -10,9 +10,9 @@
 <div class="containerGame">
 
   <div class="players" "items">
-    <span>{{game.player1.username}}</span>
-    <img class="miniphoto" src="{{game.player1.picture.imgPath}}" alt="{{user.picture.decription}}" srcset="">
-  <p id="word">pene</p>
+    <span>{{game.participants.creator.username}}</span>
+    <img class="miniphoto" src="{{game.participants.creator.picture.imgPath}}" alt="{{user.picture.decription}}" srcset="">
+  <p id="word">Flor</p>
   </div>
 
   <div class="items">
@@ -35,25 +35,22 @@
         <div class= "colors"  style="background:grey" id="white">Eraser</div>
       
 
-      <div class="colors" id="clr">
-        <h3>Clear All</h3>
+        <div class="colors" id="clr">
+          <h3>Clear All</h3>
+        </div>
+        <button class="button" id="start-button">Start Game</button>
       </div>
 
-      <button class="button" id="start-button">Start Game</button>
-
-
-
-    </div>
 </div>
 
     <div class="players" "items">
-      <span>{{game.player2.username}}</span>
+      <span>{{game.participants.guest.username}}</span>
     
-    <img class="miniphoto" src="{{game.player2.picture.imgPath}}" alt="{{user.picture.decription}}" srcset="">
+    <img class="miniphoto" src="{{game.participants.guest.picture.imgPath}}" alt="{{user.picture.decription}}" srcset="">
      <div class="wordContainer">
     
       <input type="text" id="guessed">
-  </div>
+  </div>  
     </div>
   </div>
 
