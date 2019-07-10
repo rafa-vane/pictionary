@@ -1,25 +1,37 @@
 <script src="/javascripts/game.js"></script>
 <script src="/javascripts/startGame.js"></script>
+
+
+
 <body class="gamepage">
   
 
 
 <div class="letter">
+
+  <a class="nav" href="/userPage">Back</a>
+
   <h2>WHAT IS THIS??</h2>
+  
 </div>
+
 <div class="containerGame">
 
   <div class="players" "items">
-    <span>{{game.participants.creator.username}}</span>
-    <img class="miniphoto" src="{{game.participants.creator.picture.imgPath}}" alt="{{user.picture.decription}}" srcset="">
-  <p id="word">Flor</p>
+
+     {{!-- 
+     {{#is game.guest}} {{/is}} --}}
+    <span>{{game.creator.username}}</span>
+    <img class="miniphoto" src="{{game.creator.picture.imgPath}}">
+
+  <div id="word"> Flor </div>
   </div>
 
   <div class="items">
 
     <div>
-      <canvas id="canvas" width="500px" height="503px"></canvas>
-      <div><img id="canvasImg" style="display:none;"></div>
+      {{#if game.guest}} <canvas id="canvas" width="500px" height="503px"></canvas>{{/if}}
+      {{#if game.creator}} <div><img id="canvasImg" style="display:none;"></div> {{/if}}
     </div>
 
     <div>
@@ -44,9 +56,9 @@
 </div>
 
     <div class="players" "items">
-      <span>{{game.participants.guest.username}}</span>
+      <span>{{game.guest.username}}</span>
     
-    <img class="miniphoto" src="{{game.participants.guest.picture.imgPath}}" alt="{{user.picture.decription}}" srcset="">
+    <img class="miniphoto" src="{{game.guest.picture.imgPath}}">
      <div class="wordContainer">
     
       <input type="text" id="guessed">

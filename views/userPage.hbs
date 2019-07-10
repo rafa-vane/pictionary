@@ -20,14 +20,24 @@
     <div>
       <img class="photo" src="{{user.picture.imgPath}}" alt="{{user.picture.decription}}" srcset="">
     </div>
-    <div class="">
-      You have won {{user.games.wins}}
+
+    <div>
+      Your invitedGames
+      <ul>
+    {{#each user.invitedGames}}
+
+    <li>{{this}}</li> 
+    {{/each}}
+    </ul>
+
+
+      {{!-- You have won {{user.wins}} --}}
 
     </div>
 
 
-
         <div class="inputplayers">
+
         <form action="/gamePage" method="POST" id="form-container">
         <p>Player 1</p>
           <input class="box" type="text" name="creator" id="creator" value="{{user.username}}" disabled="disabled">
@@ -35,6 +45,7 @@
           <input class="box" type="text" name="guest" id="guest" placeholder="Name Player">
         <button class="button" id="start-button" type="submit">Start Game</button>
         </form>
+
         </div>
 
 
