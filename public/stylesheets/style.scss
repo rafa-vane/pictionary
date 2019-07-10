@@ -45,8 +45,10 @@ nav a::after {
   font-size: 100px;
   float:right;
   padding-top: 90px;
+  margin-bottom: 5px;
   margin-right: 300px;
   -webkit-text-stroke: 2px black;
+  
   
 }
 .text{
@@ -55,27 +57,28 @@ nav a::after {
   margin-right: 20px;
   color: gray;
   -webkit-text-stroke: 2px black;
-
 }
+
 h2{
   font-size: 45px;
   color: gray;
   -webkit-text-stroke: 2px black;
 }
+
 #form-container {
 position: absolute;
-top: 25%;
-left: 45%;
+top: 20%;
+left: 43%;
 width: 300px;
+height: 10px;
+text-align: center;
 display: flex;
 flex-direction: column;
-height: 20px;
-text-align: center;
 }
 
 label{
   margin-top: 10px;
-  margin-bottom: 10px;
+  // margin-bottom: 10px;
   font-size: 20px;
 }
 
@@ -85,8 +88,10 @@ label{
 
 .box{
   margin-bottom: 10px;
-  margin-top:10px; 
+  // margin-top:10px; 
   text-align: center;
+  padding: 10px;
+  font-size: 15px;
 } 
 
 .photo{
@@ -112,37 +117,69 @@ label{
   border-radius: .25rem;
   transition: all .15s ease-in-out;
 }
-
+// .gamepage{
+// background-image: url("../images/draw.jpg");
+// }
 .containerGame{
+  margin-left: 50px;
+  margin-right: 50px;
   text-align: center;
   font-size: 30px;
   display: flex;
   justify-content: center;
+  justify-content: space-between;
 }
 
 .items{
   display: flex;
   justify-content: space-between;
-  align-content: space-between;   
+  align-content: space-between; 
 }
 
 .colors{
   width: 30px;
   height: 30px;
+  margin-bottom: 25px;
+  margin-left: 10px;
   border-radius: 50px;
-  font-size: 20px;
+  font-size: 15px;
+  text-align: center;
   display: flex;
-  align-content: space-between;
+  flex-direction: column;
+  // align-content: space-between;
+}
+
+
+.miniphoto{
+  width: 80px;
+  height: 80px;
+  border-radius: 40px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
 }
 
 #canvas{
-
   border: 1px solid black;
 }
 
 .players{
   width: 250px;
   border: 3px solid black;
+  background: rgb(231, 231, 231);
+}
+#form-container{
+  display: flex;
+  justify-content: center;
+  margin-top: 210px;
+}
+.user{
+  display: flex;
+
+}
+hr {
+  height: 2px;
+  background-color: gray;
 }
 .letter{
   display: flex;
@@ -157,6 +194,7 @@ label{
   font-size:15px;
   background:grey;
   color:white;
+  
 }
 
 
@@ -187,6 +225,8 @@ button:hover{
   top: 150%;
   width: 100%;
 }
+
+
 
 
 
