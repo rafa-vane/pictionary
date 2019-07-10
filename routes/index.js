@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const unirest = require('unirest')    
 const Game = require("../models/Game");
 const User = require("../models/User");
 
@@ -20,9 +21,19 @@ router.get(('/gamePage/:id'), (req, res, next) => {
     .then(game => {
       console.log(game)
       res.render('gamePage', { game });
+    })  
+    .then((game)=> {
+      unirest.get("https://wordsapiv1.p.rapidapi.com/words/?random=true")
+    .header("X-RapidAPI-Host", process.env.X_RAPIDAPI_HOST)
+    .header("X-RapidAPI-Key", process.env.X_RAPIDAPI_KEY)
+    .end(function (result) {
+      console.log(result.body.word);
+    });
     })
 
 })
+
+
 
 router.post("/gamePage", (req, res, next) => {
   User.findOne({ username: req.body.guest })
@@ -47,6 +58,8 @@ router.post("/gamePage", (req, res, next) => {
         }).catch((err) => console.log(err))
     }).catch((err) => console.log(err))
 });
+
+
 
 
 module.exports = router;
