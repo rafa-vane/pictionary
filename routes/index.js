@@ -15,7 +15,10 @@ router.get('/userPage', (req, res, next) => {
 router.get(('/gamePage/:id'),(req, res, next) =>{
   Game
   .findById(req.params.id)
-  res.render('gamePage');
+  .then(gameInfo => {
+    res.render('gamePage', gameInfo);
+  })
+  
 })
 
 router.post("/gamePage",(req, res, next) => {
@@ -28,7 +31,7 @@ router.post("/gamePage",(req, res, next) => {
       winner: ""   
     })
     .then(game =>{
-       res.render('gamePage', {game})
+       res.redirect(`gamePage/${game._id}`)
     })
     .catch((err) =>console.log(err))
   })

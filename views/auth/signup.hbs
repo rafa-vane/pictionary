@@ -3,17 +3,17 @@
 <form action="/auth/signup" method="POST" enctype="multipart/form-data" id="form-container">
 <h2>Signup</h2>
   <label for="username">Username</label>
-  <input id="username" type="text" name="username" placeholder="JonSnow">
+  <input class="box" id="username" type="text" name="username" placeholder="JonSnow">
 
   <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="Your password">
+  <input class="box" id="password" type="password" name="password" placeholder="Your password">
  
   {{#if message }}
     <div class="error-message">{{ message }}</div>
   {{/if}}
 
   <label>Photo</label>
-  <input type="file" name="photo">
+  <input  class="box"type="file" name="photo">
 
   <button class="button">Create account</button>
 

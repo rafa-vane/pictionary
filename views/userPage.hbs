@@ -11,26 +11,36 @@
 </head>
 
 <body>
-
+  <div class="user">
+          <h2>Hi {{user.username}}!!</h2>
+        </div>
+        <hr>
   <div class="profile">
+
     <div>
       <img class="photo" src="{{user.picture.imgPath}}" alt="{{user.picture.decription}}" srcset="">
     </div>
-    <div class="subitem">
-      <div class="user">
-        <h2>Hi {{user.username}}!!</h2>
-      </div>
+    <div class="">
+      You have won {{user.games.wins}}
+
     </div>
-    <div>
-      <form action="/gamePage" method="POST" id="form-container">
-      <p>Player 1</p>
-      <input type="text" name="player1" id="player1" value="{{user.username}}" disabled="disabled">
-      <p>Player 2</p>
-        <input type="text" name="player2" id="player2">
+
+      {{!-- <div class="subitem"> --}}
+
+        <div class="inputplayers">
+        <form action="/gamePage" method="POST" id="form-container">
+        <p>Player 1</p>
+          <input class="box" type="text" name="player1" id="player1" value="{{user.username}}" disabled="disabled">
+        <p>Player 2</p>
+          <input class="box" type="text" name="player2" id="player2" placeholder="Name Player">
         <button class="button" id="start-button" type="submit">Start Game</button>
-      </form>
-    </div>
+        </form>
+        </div>
+
+      {{!-- </div> --}}
+
   </div>
+  
 </body>
 
 </html>
