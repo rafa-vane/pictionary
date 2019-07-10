@@ -10,7 +10,7 @@ const path         = require('path');
 const session    = require("express-session");
 const MongoStore = require('connect-mongo')(session);
 const flash      = require("connect-flash");
-    
+
 
 mongoose
   .connect(process.env.BB_DD, {useNewUrlParser: true})
@@ -79,5 +79,8 @@ app.use('/', index);
 const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);
       
+
+
+
 
 module.exports = app;
