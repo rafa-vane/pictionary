@@ -15,20 +15,23 @@ router.get('/userPage', (req, res, next) => {
 router.get(('/gamePage/:id'),(req, res, next) =>{
   Game
   .findById(req.params.id)
-  .then(gameInfo => {
-    res.render('gamePage', gameInfo);
+  .then(game => {
+    
+    res.render('gamePage', {game});
   })
   
 })
 
 router.post("/gamePage",(req, res, next) => {
-  User.findOne({username: req.body.player2})
-  .then((player2) => {
+  User.findOne({username: req.body.guest})
+  .then((guest) => {
     Game
     .create({
-      player1: req.user,
-      player2: player2, 
-      winner: ""   
+      participants:{ 
+        creator: req.user,
+        guest: guest
+      },
+      winner: ""  
     })
     .then(game =>{
        res.redirect(`gamePage/${game._id}`)
