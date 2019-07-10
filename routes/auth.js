@@ -50,11 +50,6 @@ router.post("/signup", uploadCloud.single('photo'), (req, res, next) => {
     const newUser = new User({
       username,
       password: hashPass,
-      games:{
-        totalGames: 0,
-        wins: 0,
-        defeats:0,
-      },
       picture: { name, description, imgPath, imgName },
     });
 
