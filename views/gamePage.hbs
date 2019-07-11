@@ -25,15 +25,15 @@
     <span>{{game.creator.username}}</span>
     <img class="miniphoto" src="{{game.creator.picture.imgPath}}">
 
-  <div id="word"> Flor </div>
+  <div id="word"> {{data}} </div>
 
   </div>
 
   <div class="items">
 
     <div>
-      {{#if game.guest}} <canvas id="canvas" width="500px" height="503px"></canvas>{{/if}}
-      {{#if game.creator}} <div><img id="canvasImg" style="display:none;"></div> {{/if}}
+      {{#if game.currentUserIsTheCreatorOfThisGame}} <canvas id="canvas" width="500px" height="503px"></canvas>{{/if}}
+      {{#if game.currentUserIsTheGuestOfThisGame}} <div><img id="canvasImg"></div><canvas id="canvas" width="500px" height="503px" style="display: none;"></canvas> {{/if}}
     </div>
 
     <div>
