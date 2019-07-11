@@ -63,6 +63,22 @@ h2 {
   display: flex;
   flex-direction: column; }
 
+#formPlayers {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 10px; }
+
+.list {
+  text-decoration: none;
+  list-style-type: circle; }
+
+.gamesInvited {
+  text-align: center;
+  width: 30%;
+  display: flex;
+  align-content: center; }
+
 label {
   margin-top: 10px;
   font-size: 20px; }
@@ -135,7 +151,9 @@ label {
 
 #canvas {
   border: 1px solid black;
-  margin-right: 40px; }
+  margin-right: 40px;
+  background: #e7e7e7; }
+
 
 .players {
   width: 250px;
@@ -187,7 +205,9 @@ button:hover {
 
 .profile {
   display: flex;
-  margin-top: 50px; }
+  margin-top: 20px;
+  padding: 50px;
+  background: rgba(231, 231, 231, 0.7); }
 
 .subitem {
   display: flex;
@@ -195,5 +215,10 @@ button:hover {
   justify-content: space-between;
   align-items: center;
   width: 600px; }
+
+
+.gamepage {
+  background: url("../images/draw copia.jpg"); }
+
 
 /*# sourceMappingURL=style.css.map */

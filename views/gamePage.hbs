@@ -19,9 +19,16 @@
 
   </div>
 
-  <div class="containerGame">
 
-    <div class="players" "items">
+    <span>{{game.creator.username}}</span>
+    <img class="miniphoto" src="{{game.creator.picture.imgPath}}">
+
+  <div id="word"> 
+    {{#each data}}
+    {{this}}
+    {{/each}}
+
+  </div>
 
 
 
@@ -72,8 +79,25 @@
       <div class="players" "items">
         <span>{{game.guest.username}}</span>
 
-        <img class="miniphoto" src="{{game.guest.picture.imgPath}}">
-        <div class="wordContainer">
+
+    <div class="players" "items">
+      <span>{{game.guest.username}}</span>
+    
+    <img class="miniphoto" src="{{game.guest.picture.imgPath}}">
+
+         {{!-- <div id="word"> 
+          {{#each data}}
+            {{this}}
+          {{/each}}
+
+        </div> --}}
+     <div class="wordContainer">
+      <input type="text" id="guessed">
+      
+    </div>  
+  </div>
+  </div>
+
 
           <input type="text" id="guessed">
         </div>
