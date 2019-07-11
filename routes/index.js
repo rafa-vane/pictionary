@@ -11,7 +11,7 @@ router.get('/', (req, res, next) => {
 
 router.get('/userPage', (req, res, next) => {
   Game
-    .find({ id: req.user.invitedGames })
+    .find({_id: req.user.invitedGames })
     .then((allGamesInvited) => {
       res.render('userPage', { user: req.user, allGamesInvited })
       console.log("ritaaaaaaaaa")
@@ -28,7 +28,7 @@ router.get(('/gamePage/:id'), (req, res, next) => {
       console.log(game)
 
       res.render('gamePage', { game });
-    })  
+    })   
     .then((game)=> {
       unirest.get("https://wordsapiv1.p.rapidapi.com/words/?random=true")
     .header("X-RapidAPI-Host", process.env.X_RAPIDAPI_HOST)
