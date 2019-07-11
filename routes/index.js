@@ -12,10 +12,13 @@ router.get('/', (req, res, next) => {
 router.get('/userPage', (req, res, next) => {
   Game
     .find({ _id: req.user.invitedGames })
+    .populate("creator")
     .then((allGamesInvited) => {
-      res.render('userPage', { user: req.user, allGamesInvited })
-      console.log("ritaaaaaaaaa")
       console.log(allGamesInvited)
+      console.log("*".repeat(500))
+      res.render('userPage', { user: req.user, allGamesInvited })
+      // console.log("ritaaaaaaaaa")
+      // console.log(allGamesInvited)
     })
 });
 
