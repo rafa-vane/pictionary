@@ -1,95 +1,71 @@
+<script src="/javascripts/game.js"></script>
+<script src="/javascripts/startGame.js"></script>
 
-<div class="gamepage">
 
-  <div class="letter">
 
-    <a class="nav" href="/userPage">Back</a>
+<body class="gamepage">
+  
 
-    <h2>WHAT IS THIS??</h2>
-    <h1 id="h1"></h1>
 
-  </div>
+<div class="letter">
 
+  <a class="nav" href="/userPage">Back</a>
+
+  <h2>WHAT IS THIS??</h2>
+  
+</div>
+
+<div class="containerGame">
+
+  <div class="players" "items">
+
+
+     {{!-- 
+     {{#is game.guest}} {{/is}} --}}
     <span>{{game.creator.username}}</span>
     <img class="miniphoto" src="{{game.creator.picture.imgPath}}">
 
-  <div id="word"> 
-    {{#each data}}
-    {{this}}
-    {{/each}}
+  <div id="word"> Flor </div>
 
   </div>
-      {{!-- <span>{{game.creator.username}}</span>
-      <img class="miniphoto" src="{{game.creator.picture.imgPath}}"> --}}
 
-      <div id="word"> {{data}} </div>
+  <div class="items">
 
+    <div>
+       {{#if game.creator}}<canvas id="canvas" width="500px" height="503px"></canvas>{{/if}}
+       {{#if game.guest}}<div><img id="canvasImg" style="display:none;"></div> {{/if}}
     </div>
 
-    <div class="items">
+    <div>
 
-      <div>
-        {{#if game.currentUserIsTheCreatorOfThisGame}}
-        <canvas id="canvas" width="500px" height="503px"></canvas>
-        <img id="canvasImg" src="" style="display:none">
-        {{/if}}
-      </div>
-      <div>
-        {{#if game.currentUserIsTheGuestOfThisGame}}
-        <img id="canvasImgGuest" src="" style="border: 2px solid">
-        <canvas id="canvas" width="500px" height="503px" style="display:none"></canvas>
-        </form>
-        {{/if}}
-      </div>
+      <div class="colum">
+        <div class= "colors"><h6>Choose Color</h6></div>
+        <div class= "colors"  style="background:green;" id="green"></div>
+        <div class= "colors" style="background:blue;" id="blue"></div>
+        <div class= "colors"  style="background:red;" id="red"></div>
+        <div class= "colors"  style='background:yellow;' id='yellow'></div>
+        <div class= "colors"  style="background:orange;" id="orange"></div>
+        <div cclass= "colors"  style="background:black;" id="black"></div>
+        <div class= "colors"  style="background:grey" id="white"><h5>Eraser</h5> </div>
+      
 
-      <div>
-
-        <div class="colum">
-          <div class="colors">Choose Color</div>
-          <div class="colors" style="background:green;" id="green"></div>
-          <div class="colors" style="background:blue;" id="blue"></div>
-          <div class="colors" style="background:red;" id="red"></div>
-          <div class="colors" style='background:yellow;' id='yellow'></div>
-          <div class="colors" style="background:orange;" id="orange"></div>
-          <div cclass="colors" style="background:black;" id="black"></div>
-          <div class="colors" style="background:grey" id="white">Eraser</div>
-
-
-          <div class="colors" id="clr">
-            <h3>Clear All</h3>
-          </div>
-          <button class="button" id="start-button">Start Game</button>
+        <div class="colors" id="clr">
+          <h4>Clear All</h4>
         </div>
-
+        <button class="button" id="start-button">Start Game</button>
       </div>
-{{!-- 
-      <div class="players" "items">
-        <span>{{game.guest.username}}</span>
- --}}
+
+</div>
 
     <div class="players" "items">
       <span>{{game.guest.username}}</span>
     
     <img class="miniphoto" src="{{game.guest.picture.imgPath}}">
-
-         {{!-- <div id="word"> 
-          {{#each data}}
-            {{this}}
-          {{/each}}
-
-        </div> --}}
      <div class="wordContainer">
+    
       <input type="text" id="guessed">
-      
-    </div>  
-  </div>
-  </div>
-
-
-          {{!-- <input type="text" id="guessed">
-        </div> --}}
-      </div>
+  </div>  
     </div>
-</div>
-<script src="/javascripts/game.js"></script>
-<script src="/javascripts/startGame.js"></script>
+  </div>
+
+  </body>
