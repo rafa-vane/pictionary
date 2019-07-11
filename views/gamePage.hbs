@@ -19,13 +19,15 @@
 
   <div class="players" "items">
 
-
-     {{!-- 
-     {{#is game.guest}} {{/is}} --}}
     <span>{{game.creator.username}}</span>
     <img class="miniphoto" src="{{game.creator.picture.imgPath}}">
 
-  <div id="word"> {{data}} </div>
+  <div id="word"> 
+    {{#each data}}
+    {{this}}
+    {{/each}}
+
+  </div>
 
   </div>
 
@@ -61,11 +63,18 @@
       <span>{{game.guest.username}}</span>
     
     <img class="miniphoto" src="{{game.guest.picture.imgPath}}">
+
+         {{!-- <div id="word"> 
+          {{#each data}}
+            {{this}}
+          {{/each}}
+
+        </div> --}}
      <div class="wordContainer">
-    
       <input type="text" id="guessed">
-  </div>  
-    </div>
+      
+    </div>  
+  </div>
   </div>
 
   </body>

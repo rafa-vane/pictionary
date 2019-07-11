@@ -10,15 +10,12 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/userPage', (req, res, next) => {
+  
   Game
-    .find({ _id: req.user.invitedGames })
+    .find({ _id: req.user.invitedGames})
     .populate("creator")
-    .then((allGamesInvited) => {
-      console.log(allGamesInvited)
-      console.log("*".repeat(500))
-      res.render('userPage', { user: req.user, allGamesInvited })
-      // console.log("ritaaaaaaaaa")
-      // console.log(allGamesInvited)
+    .then((allGamesInvited ) => {
+        res.render('userPage', { user: req.user, allGamesInvited})
     })
 });
 
@@ -29,47 +26,36 @@ router.get(('/gamePage/:id'), (req, res, next) => {
     .populate('creator')
     .populate('guest')
     .then(game => {
-     getRandomWord()
+      getRandomWord()
       .then((data)=>{
-        console.log(req.session.passport.user)
-
         game.currentUserIsTheCreatorOfThisGame = false
         game.currentUserIsTheGuestOfThisGame = false
-        
         if (game.creator._id.toString() === req.session.passport.user.toString()){
           game.currentUserIsTheCreatorOfThisGame = true
         } else {
           game.currentUserIsTheGuestOfThisGame = true
         }
-
         res.render('gamePage', { game, data });
       })
-    })
+    }).catch(err=>console.log(err))
 })
-1
+
 getRandomWord = () => {
-  return unirest.get("https://wordsapiv1.p.rapidapi.com/words/?random=true")
+  let words = new Array(1).fill()
+  return Promise.all(words.map(l=>{
+    return unirest.get("https://wordsapiv1.p.rapidapi.com/words/?random=true")
     .header("X-RapidAPI-Host", process.env.X_RAPIDAPI_HOST)
     .header("X-RapidAPI-Key", process.env.X_RAPIDAPI_KEY)
     .then( (result) =>{
-      // if(result.body.results.length!=undefined){
-      //   let prueba = [...result.body.results]
-      //   console.log(prueba[0].definition)
-      // }
-      // else{
-      //   console.log("tpm")
-      // }
-      return result.body.word
-
-      let rWord = result.body.word
-      let stringed = rWord.toString()
-      console.log(typeof(result.body.word))
-      return stringed
-    });
+      let object = result.body.results[0]
+      let word = result.body.word
+      let definition = object.definition
+      return `${word} >> ${definition}`
+    })
+  })).then((data)=>{
+    return data
+  })
 }
-
-
-
 
 router.post("/gamePage", (req, res, next) => {
   User.findOne({ username: req.body.guest })
