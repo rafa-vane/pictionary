@@ -96,17 +96,13 @@ class Game {
   }
 
   save = () => {
-    // this.canvasDOMEl.toBlob(function(blob) {
-    //   let formData = new FormData(); 
-    //   formData.append("canvasImg", blob);  
-    // });
     this.dataURL = this.canvasDOMEl.toDataURL();
     document.getElementById("canvasImg").src = this.dataURL;
 
     this.idImage = (this.canvasDOMEl.baseURI).split("/")[4];
 
     axios.post(`http://localhost:3000/canvasImg/${this.idImage}`, this.dataURL)
-      // .then(res => { console.log("Test res:", res) })
+    
   }
 
 

@@ -1,14 +1,5 @@
 
-
-
-{{!-- <script>
-  let interval = setInterval(() => {
-      console.log(document.getElementById("canvasImg"))
-    }, 1000 / 60)
-</script> --}}
-
 <div class="gamepage">
-
 
   <div class="letter">
 
@@ -19,7 +10,6 @@
 
   </div>
 
-
     <span>{{game.creator.username}}</span>
     <img class="miniphoto" src="{{game.creator.picture.imgPath}}">
 
@@ -29,11 +19,8 @@
     {{/each}}
 
   </div>
-
-
-
-      <span>{{game.creator.username}}</span>
-      <img class="miniphoto" src="{{game.creator.picture.imgPath}}">
+      {{!-- <span>{{game.creator.username}}</span>
+      <img class="miniphoto" src="{{game.creator.picture.imgPath}}"> --}}
 
       <div id="word"> {{data}} </div>
 
@@ -75,10 +62,10 @@
         </div>
 
       </div>
-
+{{!-- 
       <div class="players" "items">
         <span>{{game.guest.username}}</span>
-
+ --}}
 
     <div class="players" "items">
       <span>{{game.guest.username}}</span>
@@ -99,8 +86,8 @@
   </div>
 
 
-          <input type="text" id="guessed">
-        </div>
+          {{!-- <input type="text" id="guessed">
+        </div> --}}
       </div>
     </div>
 </div>

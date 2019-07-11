@@ -67,17 +67,29 @@ h2 {
   display: flex;
   flex-direction: column;
   width: 300px;
-  height: 10px; }
+  height: 300px; }
 
 .list {
   text-decoration: none;
-  list-style-type: circle; }
+  list-style-type: circle;
+  color: grey; }
+
+li {
+  margin-bottom: 10px; }
 
 .gamesInvited {
   text-align: center;
   width: 30%;
   display: flex;
-  align-content: center; }
+  align-content: center;
+  flex-direction: column;
+  font-size: 15px;
+  margin-left: 50px; }
+
+.tittle {
+  font-size: 20px;
+  color: gray;
+  -webkit-text-stroke: .5px black; }
 
 label {
   margin-top: 10px;
@@ -93,9 +105,11 @@ label {
   font-size: 15px; }
 
 .photo {
-  border-radius: 150px;
   height: 300px;
-  width: 300px; }
+  width: 300px;
+  padding: 20px;
+  border: 1px grey;
+  border-style: dotted; }
 
 .button {
   display: inline-block;
@@ -154,7 +168,6 @@ label {
   margin-right: 40px;
   background: #e7e7e7; }
 
-
 .players {
   width: 250px;
   border: 3px solid black;
@@ -165,9 +178,9 @@ label {
   display: flex;
   flex-direction: column;
   align-content: flex-end;
-  margin-left: 150px;
+  margin-left: 80px;
   width: 300px;
-  height: 10px;
+  height: 300px;
   text-align: center; }
 
 #form-container {
@@ -216,9 +229,7 @@ button:hover {
   align-items: center;
   width: 600px; }
 
-
 .gamepage {
   background: url("../images/draw copia.jpg"); }
-
 
 /*# sourceMappingURL=style.css.map */

@@ -24,18 +24,18 @@
     </div>
 
     <div class="gamesInvited">
-      Your Invited Games
-    
+      <div class="tittle"><h3>Your Invited Games</h3></div>
+      
+    <div>
       <ol class="list">
         
     {{#each allGamesInvited}}
     <li><a class="text2" href="/gamePage/{{this._id}}">{{this.creator.username}}</a></li> 
     {{/each}}
-
     </ol>
-
-
     </div>
+    </div>
+
     {{!-- <div>
       {{#each allUsers}}
       {{this.username}}
@@ -46,9 +46,9 @@
         <div class="inputplayers">
 
         <form action="/gamePage" method="POST" id="formPlayers">
-        <p>Player 1</p>
+        <h3 class="tittle">Player 1</h3>
           <input class="box" type="text" name="creator" id="creator" value="{{user.username}}" disabled="disabled">
-        <p>Player 2</p>
+        <h3 class="tittle"> Player 2</h3>
           <input class="box" type="text" name="guest" id="guest" placeholder="Name Player">
         <button class="button" id="start-button" type="submit">Start Game</button>
         </form>
