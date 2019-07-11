@@ -154,6 +154,7 @@ label {
   margin-right: 40px;
   background: #e7e7e7; }
 
+
 .players {
   width: 250px;
   border: 3px solid black;
@@ -215,7 +216,9 @@ button:hover {
   align-items: center;
   width: 600px; }
 
+
 .gamepage {
   background: url("../images/draw copia.jpg"); }
+
 
 /*# sourceMappingURL=style.css.map */

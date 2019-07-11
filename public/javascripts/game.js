@@ -22,6 +22,7 @@ class Game {
     this.guessed = undefined
     this.guessedWord = undefined;
     this.inputField = undefined;
+    this.idImage = undefined;
   }
 
   init = () => {
@@ -55,10 +56,10 @@ class Game {
       this.findxy('out', e)
     }, false)
     this.inputField.onkeydown = (e) => {
-      if(e.keyCode == 13){
-       this.wordComparison()
+      if (e.keyCode == 13) {
+        this.wordComparison()
       }
-   };
+    };
   }
 
 
@@ -95,10 +96,17 @@ class Game {
   }
 
   save = () => {
-    document.getElementById("canvasImg").style.border = "2px solid";
+    // this.canvasDOMEl.toBlob(function(blob) {
+    //   let formData = new FormData(); 
+    //   formData.append("canvasImg", blob);  
+    // });
     this.dataURL = this.canvasDOMEl.toDataURL();
     document.getElementById("canvasImg").src = this.dataURL;
-    document.getElementById("canvasImg").style.display = "inline";
+
+    this.idImage = (this.canvasDOMEl.baseURI).split("/")[4];
+
+    axios.post(`http://localhost:3000/canvasImg/${this.idImage}`, this.dataURL)
+      // .then(res => { console.log("Test res:", res) })
   }
 
 
@@ -134,15 +142,17 @@ class Game {
   }
 
   wordComparison = () => {
- this.word =  document.getElementById("word").innerHTML
- this.guessedWord =  this.inputField.value 
- if (this.word == this.guessedWord){
-  this.stop()
- }
+    this.word = document.getElementById("word").innerHTML
+    this.guessedWord = this.inputField.value
+    if (this.word.match(/^[A-Za-z ]+$/) == this.guessedWord.match(/^[A-Za-z ]+$/)) {
+      this.stop()
+    }
   }
 
   stop = () => {
     clearInterval(this.intervalId)
+    this.canvasDOMEl = undefined
+    document.getElementById("h1").innerHTML = "You have Won!!"
   }
- 
- }
+
+}

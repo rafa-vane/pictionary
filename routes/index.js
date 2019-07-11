@@ -4,7 +4,7 @@ const unirest = require('unirest')
 const Game = require("../models/Game");
 const User = require("../models/User");
 
-/* GET home page */
+
 router.get('/', (req, res, next) => {
   res.render('index');
 });
@@ -14,19 +14,22 @@ router.get('/userPage', (req, res, next) => {
   Game
     .find({ _id: req.user.invitedGames})
     .populate("creator")
+
     .then((allGamesInvited ) => {
         res.render('userPage', { user: req.user, allGamesInvited})
+
     })
 });
 
 router.get(('/gamePage/:id'), (req, res, next) => {
- 
   Game
     .findById(req.params.id)
     .populate('creator')
     .populate('guest')
     .then(game => {
       getRandomWord()
+
+
       .then((data)=>{
         game.currentUserIsTheCreatorOfThisGame = false
         game.currentUserIsTheGuestOfThisGame = false
@@ -38,6 +41,7 @@ router.get(('/gamePage/:id'), (req, res, next) => {
         res.render('gamePage', { game, data });
       })
     }).catch(err=>console.log(err))
+
 })
 
 getRandomWord = () => {
@@ -46,6 +50,7 @@ getRandomWord = () => {
     return unirest.get("https://wordsapiv1.p.rapidapi.com/words/?random=true")
     .header("X-RapidAPI-Host", process.env.X_RAPIDAPI_HOST)
     .header("X-RapidAPI-Key", process.env.X_RAPIDAPI_KEY)
+
     .then( (result) =>{
       let object = result.body.results[0]
       let word = result.body.word
@@ -78,6 +83,14 @@ router.post("/gamePage", (req, res, next) => {
                 }).catch(err => console.log(err))
             }).catch(err => console.log(err))
         }).catch((err) => console.log(err))
+    }).catch((err) => console.log(err))
+});
+
+router.post("/canvasImg/:idImg", (req, res, next) => {
+  console.log((Object.keys(req.body))[0])
+  Game.findByIdAndUpdate(req.params.idImg, { imgGame: (Object.keys(req.body))[0] }, { new: true })
+    .then((fotos) => {
+      console.log(fotos.imgGame)
     }).catch((err) => console.log(err))
 });
 
