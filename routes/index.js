@@ -4,7 +4,7 @@ const unirest = require('unirest')
 const Game = require("../models/Game");
 const User = require("../models/User");
 
-/* GET home page */
+
 router.get('/', (req, res, next) => {
   res.render('index');
 });
@@ -14,36 +14,36 @@ router.get('/userPage', (req, res, next) => {
     .find({ _id: req.user.invitedGames })
     .populate("creator")
     .then((allGamesInvited) => {
-      console.log(allGamesInvited)
-      console.log("*".repeat(500))
-      res.render('userPage', { user: req.user, allGamesInvited })
-      // console.log("ritaaaaaaaaa")
       // console.log(allGamesInvited)
+      // console.log("*".repeat(500))
+      res.render('userPage', { user: req.user, allGamesInvited })
+
     })
 });
 
 router.get(('/gamePage/:id'), (req, res, next) => {
- 
+
   Game
     .findById(req.params.id)
     .populate('creator')
     .populate('guest')
     .then(game => {
-     getRandomWord()
-      .then((data)=>{
-        console.log(req.session.passport.user)
+      getRandomWord()
+        .then((data) => {
+          console.log(data)
+          //console.log(req.session.passport.user)
 
-        game.currentUserIsTheCreatorOfThisGame = false
-        game.currentUserIsTheGuestOfThisGame = false
-        
-        if (game.creator._id.toString() === req.session.passport.user.toString()){
-          game.currentUserIsTheCreatorOfThisGame = true
-        } else {
-          game.currentUserIsTheGuestOfThisGame = true
-        }
+          game.currentUserIsTheCreatorOfThisGame = false
+          game.currentUserIsTheGuestOfThisGame = false
 
-        res.render('gamePage', { game, data });
-      })
+          if (game.creator._id.toString() === req.session.passport.user.toString()) {
+            game.currentUserIsTheCreatorOfThisGame = true
+          } else {
+            game.currentUserIsTheGuestOfThisGame = true
+          }
+
+          res.render('gamePage', { game, data });
+        })
     })
 })
 1
@@ -51,24 +51,10 @@ getRandomWord = () => {
   return unirest.get("https://wordsapiv1.p.rapidapi.com/words/?random=true")
     .header("X-RapidAPI-Host", process.env.X_RAPIDAPI_HOST)
     .header("X-RapidAPI-Key", process.env.X_RAPIDAPI_KEY)
-    .then( (result) =>{
-      // if(result.body.results.length!=undefined){
-      //   let prueba = [...result.body.results]
-      //   console.log(prueba[0].definition)
-      // }
-      // else{
-      //   console.log("tpm")
-      // }
+    .then((result) => {
       return result.body.word
-
-      let rWord = result.body.word
-      let stringed = rWord.toString()
-      console.log(typeof(result.body.word))
-      return stringed
     });
 }
-
-
 
 
 router.post("/gamePage", (req, res, next) => {
@@ -93,6 +79,11 @@ router.post("/gamePage", (req, res, next) => {
             }).catch(err => console.log(err))
         }).catch((err) => console.log(err))
     }).catch((err) => console.log(err))
+});
+
+router.post("/canvasImg/:idImg", (req, res, next) => {
+  console.log((Object.keys(req.body))[0])
+  // Game.findByIdAndUpdate(req.params.idImg, {})
 });
 
 

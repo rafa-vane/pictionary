@@ -1,71 +1,84 @@
-<script src="/javascripts/game.js"></script>
-<script src="/javascripts/startGame.js"></script>
 
 
 
-<body class="gamepage">
-  
+{{!-- <script>
+  let interval = setInterval(() => {
+      console.log(document.getElementById("canvasImg"))
+    }, 1000 / 60)
+</script> --}}
+
+<div class="gamepage">
 
 
-<div class="letter">
+  <div class="letter">
 
-  <a class="nav" href="/userPage">Back</a>
+    <a class="nav" href="/userPage">Back</a>
 
-  <h2>WHAT IS THIS??</h2>
-  
-</div>
-
-<div class="containerGame">
-
-  <div class="players" "items">
-
-
-     {{!-- 
-     {{#is game.guest}} {{/is}} --}}
-    <span>{{game.creator.username}}</span>
-    <img class="miniphoto" src="{{game.creator.picture.imgPath}}">
-
-  <div id="word"> {{data}} </div>
+    <h2>WHAT IS THIS??</h2>
+    <h1 id="h1"></h1>
 
   </div>
 
-  <div class="items">
-
-    <div>
-      {{#if game.currentUserIsTheCreatorOfThisGame}} <canvas id="canvas" width="500px" height="503px"></canvas>{{/if}}
-      {{#if game.currentUserIsTheGuestOfThisGame}} <div><img id="canvasImg"></div><canvas id="canvas" width="500px" height="503px" style="display: none;"></canvas> {{/if}}
-    </div>
-
-    <div>
-
-      <div class="colum">
-        <div class= "colors"  >Choose Color</div>
-        <div class= "colors"  style="background:green;" id="green"></div>
-        <div class= "colors" style="background:blue;" id="blue"></div>
-        <div class= "colors"  style="background:red;" id="red"></div>
-        <div class= "colors"  style='background:yellow;' id='yellow'></div>
-        <div class= "colors"  style="background:orange;" id="orange"></div>
-        <div cclass= "colors"  style="background:black;" id="black"></div>
-        <div class= "colors"  style="background:grey" id="white">Eraser</div>
-      
-
-        <div class="colors" id="clr">
-          <h3>Clear All</h3>
-        </div>
-        <button class="button" id="start-button">Start Game</button>
-      </div>
-
-</div>
+  <div class="containerGame">
 
     <div class="players" "items">
-      <span>{{game.guest.username}}</span>
-    
-    <img class="miniphoto" src="{{game.guest.picture.imgPath}}">
-     <div class="wordContainer">
-    
-      <input type="text" id="guessed">
-  </div>  
-    </div>
-  </div>
 
-  </body>
+
+
+      <span>{{game.creator.username}}</span>
+      <img class="miniphoto" src="{{game.creator.picture.imgPath}}">
+
+      <div id="word"> {{data}} </div>
+
+    </div>
+
+    <div class="items">
+
+      <div>
+        {{#if game.currentUserIsTheCreatorOfThisGame}}
+        <canvas id="canvas" width="500px" height="503px"></canvas>
+        <img id="canvasImg" src="" style="display:none">
+        {{/if}}
+      </div>
+      <div>
+        {{#if game.currentUserIsTheGuestOfThisGame}}
+        <img id="canvasImgGuest" src="" style="border: 2px solid">
+        <canvas id="canvas" width="500px" height="503px" style="display:none"></canvas>
+        </form>
+        {{/if}}
+      </div>
+
+      <div>
+
+        <div class="colum">
+          <div class="colors">Choose Color</div>
+          <div class="colors" style="background:green;" id="green"></div>
+          <div class="colors" style="background:blue;" id="blue"></div>
+          <div class="colors" style="background:red;" id="red"></div>
+          <div class="colors" style='background:yellow;' id='yellow'></div>
+          <div class="colors" style="background:orange;" id="orange"></div>
+          <div cclass="colors" style="background:black;" id="black"></div>
+          <div class="colors" style="background:grey" id="white">Eraser</div>
+
+
+          <div class="colors" id="clr">
+            <h3>Clear All</h3>
+          </div>
+          <button class="button" id="start-button">Start Game</button>
+        </div>
+
+      </div>
+
+      <div class="players" "items">
+        <span>{{game.guest.username}}</span>
+
+        <img class="miniphoto" src="{{game.guest.picture.imgPath}}">
+        <div class="wordContainer">
+
+          <input type="text" id="guessed">
+        </div>
+      </div>
+    </div>
+</div>
+<script src="/javascripts/game.js"></script>
+<script src="/javascripts/startGame.js"></script>
