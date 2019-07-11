@@ -14,15 +14,12 @@ router.get('/userPage', (req, res, next) => {
     .find({ _id: req.user.invitedGames })
     .populate("creator")
     .then((allGamesInvited) => {
-      // console.log(allGamesInvited)
-      // console.log("*".repeat(500))
       res.render('userPage', { user: req.user, allGamesInvited })
 
     })
 });
 
 router.get(('/gamePage/:id'), (req, res, next) => {
-
   Game
     .findById(req.params.id)
     .populate('creator')
@@ -30,8 +27,6 @@ router.get(('/gamePage/:id'), (req, res, next) => {
     .then(game => {
       getRandomWord()
         .then((data) => {
-          console.log(data)
-          //console.log(req.session.passport.user)
 
           game.currentUserIsTheCreatorOfThisGame = false
           game.currentUserIsTheGuestOfThisGame = false
@@ -46,7 +41,7 @@ router.get(('/gamePage/:id'), (req, res, next) => {
         })
     })
 })
-1
+
 getRandomWord = () => {
   return unirest.get("https://wordsapiv1.p.rapidapi.com/words/?random=true")
     .header("X-RapidAPI-Host", process.env.X_RAPIDAPI_HOST)
@@ -83,7 +78,10 @@ router.post("/gamePage", (req, res, next) => {
 
 router.post("/canvasImg/:idImg", (req, res, next) => {
   console.log((Object.keys(req.body))[0])
-  // Game.findByIdAndUpdate(req.params.idImg, {})
+  Game.findByIdAndUpdate(req.params.idImg, { imgGame: (Object.keys(req.body))[0] }, { new: true })
+    .then((fotos) => {
+      console.log(fotos.imgGame)
+    }).catch((err) => console.log(err))
 });
 
 
