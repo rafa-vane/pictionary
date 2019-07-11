@@ -41,8 +41,6 @@ nav a::after {
   margin-bottom: 5px;
   margin-right: 300px;
   -webkit-text-stroke: 2px black;
-  
-  
 }
 .text{
   font-size: 50px;
@@ -51,6 +49,8 @@ nav a::after {
   color: gray;
   -webkit-text-stroke: 2px black;
 }
+
+
 h2{
   font-size: 45px;
   color: gray;
@@ -65,6 +65,26 @@ height: 10px;
 text-align: center;
 display: flex;
 flex-direction: column;
+}
+
+#formPlayers{
+  display: flex;
+  
+  flex-direction: column;
+  width: 300px;
+  height: 10px;
+}
+.list{
+  text-decoration: none;
+  list-style-type: circle;
+  
+}
+.gamesInvited{
+  text-align: center;
+  width: 30%;
+  display: flex;
+  align-content: center;
+
 }
 label{
   margin-top: 10px;
@@ -103,10 +123,7 @@ label{
   border-radius: .25rem;
   transition: all .15s ease-in-out;
 }
-// .gamepage{
-// background-image: url("../images/draw.jpg");
-// image-resolution: 0.15s;
-// }
+
 .containerGame{
   margin-left: 50px;
   margin-right: 50px;
@@ -131,8 +148,8 @@ label{
   text-align: center;
   display: flex;
   flex-direction: column;
-  // align-content: space-between;
 }
+
 .miniphoto{
   width: 80px;
   height: 80px;
@@ -143,10 +160,13 @@ label{
   align-content: center;
   justify-content: center;
 }
+
 #canvas{
   border: 1px solid black;
   margin-right: 40px;
+  background: rgb(231, 231, 231);
 }
+
 .players{
   width: 250px;
   border: 3px solid black;
@@ -155,6 +175,7 @@ label{
  
 }
 .inputplayers{
+  
   display: flex;
   flex-direction: column;
   align-content: flex-end;
@@ -199,7 +220,9 @@ button:hover{
 }
 .profile{
   display: flex;
-  margin-top: 50px;
+  margin-top: 20px;
+  padding: 50px;
+  background: rgba(231, 231, 231, .7);
 }
 .subitem{
   display: flex;
@@ -207,4 +230,8 @@ button:hover{
   justify-content: space-between;
   align-items: center;
   width: 600px;
+}
+
+.gamepage{
+  background: url("../images/draw\ copia.jpg");
 }
