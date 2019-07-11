@@ -104,6 +104,14 @@ label {
   padding: 10px;
   font-size: 15px; }
 
+.box2 {
+  margin-bottom: 10px;
+  text-align: center;
+  padding: 10px;
+  font-size: 15px;
+  display: flex;
+  align-content: flex-end; }
+
 .photo {
   height: 300px;
   width: 300px;
@@ -231,5 +239,10 @@ button:hover {
 
 .gamepage {
   background: url("../images/draw copia.jpg"); }
+
+#word {
+  display: flex;
+  font-size: 20px;
+  padding: 12px; }
 
 /*# sourceMappingURL=style.css.map */
