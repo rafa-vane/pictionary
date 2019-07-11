@@ -24,9 +24,8 @@
     <div>
       Your invitedGames
       <ul>
-    {{#each user.invitedGames}}
-
-    <li>{{this}}</li> 
+    {{#each allGamesInvited}}
+    <li><a href="/gamePage/{{this._id}}">{{this.creator.username}}</a></li> 
     {{/each}}
     </ul>
 

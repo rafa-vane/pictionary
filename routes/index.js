@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const unirest = require('unirest')    
+const unirest = require('unirest')
 const Game = require("../models/Game");
 const User = require("../models/User");
 
@@ -11,34 +11,63 @@ router.get('/', (req, res, next) => {
 
 router.get('/userPage', (req, res, next) => {
   Game
-    .find({ id: req.user.invitedGames })
+    .find({ _id: req.user.invitedGames })
+    .populate("creator")
     .then((allGamesInvited) => {
-      res.render('userPage', { user: req.user, allGamesInvited })
-      console.log("ritaaaaaaaaa")
       console.log(allGamesInvited)
+      console.log("*".repeat(500))
+      res.render('userPage', { user: req.user, allGamesInvited })
+      // console.log("ritaaaaaaaaa")
+      // console.log(allGamesInvited)
     })
 });
 
 router.get(('/gamePage/:id'), (req, res, next) => {
+ 
   Game
     .findById(req.params.id)
     .populate('creator')
     .populate('guest')
     .then(game => {
-      console.log(game)
+     getRandomWord()
+      .then((data)=>{
+        console.log(req.session.passport.user)
 
-      res.render('gamePage', { game });
-    })  
-    .then((game)=> {
-      unirest.get("https://wordsapiv1.p.rapidapi.com/words/?random=true")
+        game.currentUserIsTheCreatorOfThisGame = false
+        game.currentUserIsTheGuestOfThisGame = false
+        
+        if (game.creator._id.toString() === req.session.passport.user.toString()){
+          game.currentUserIsTheCreatorOfThisGame = true
+        } else {
+          game.currentUserIsTheGuestOfThisGame = true
+        }
+
+        res.render('gamePage', { game, data });
+      })
+    })
+})
+1
+getRandomWord = () => {
+  return unirest.get("https://wordsapiv1.p.rapidapi.com/words/?random=true")
     .header("X-RapidAPI-Host", process.env.X_RAPIDAPI_HOST)
     .header("X-RapidAPI-Key", process.env.X_RAPIDAPI_KEY)
-    .end(function (result) {
-      console.log(result.body.word);
-    });
-    })
+    .then( (result) =>{
+      // if(result.body.results.length!=undefined){
+      //   let prueba = [...result.body.results]
+      //   console.log(prueba[0].definition)
+      // }
+      // else{
+      //   console.log("tpm")
+      // }
+      return result.body.word
 
-})
+      let rWord = result.body.word
+      let stringed = rWord.toString()
+      console.log(typeof(result.body.word))
+      return stringed
+    });
+}
+
 
 
 
