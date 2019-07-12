@@ -1,83 +1,93 @@
-<div class="gamepage">
+<body class="gamepage">
 
+  <a class="nav" href="/userPage">Back</a>
 
   <div class="letter">
 
-    <a class="nav" href="/userPage">Back</a>
 
     <h2>WHAT IS THIS??</h2>
-    <h1 id="h1"></h1>
+
+
 
   </div>
+  <div class="containerGame">
+    <div class="players">
 
+      <span>{{game.creator.username}}</span>
+      <img class="miniphoto" src="{{game.creator.picture.imgPath}}">
 
-  <span>{{game.creator.username}}</span>
-  <img class="miniphoto" src="{{game.creator.picture.imgPath}}">
-
-  <div id="word">
-    {{#each data}}
-    {{this}}
-    {{/each}}
-
-  </div>
-
-
-
-
-<div class="items">
-
-  <div>
-    {{#if game.currentUserIsTheCreatorOfThisGame}}
-    <canvas id="canvas" width="500px" height="503px"></canvas>
-    <img id="canvasImg" src="" style="display:none; position:absolute">
-    {{/if}}
-  </div>
-  <div>
-    {{#if game.currentUserIsTheGuestOfThisGame}}
-    <img id="canvasImgGuest" src="{{game.imgGame}}" style="border: 2px solid">
-    <canvas id="canvas" width="500px" height="503px" style="display:none, position:absolute"></canvas>
-    </form>
-    {{/if}}
-  </div>
-
-  <div>
-
-    <div class="colum">
-      <div class="colors">Choose Color</div>
-      <div class="colors" style="background:green;" id="green"></div>
-      <div class="colors" style="background:blue;" id="blue"></div>
-      <div class="colors" style="background:red;" id="red"></div>
-      <div class="colors" style='background:yellow;' id='yellow'></div>
-      <div class="colors" style="background:orange;" id="orange"></div>
-      <div cclass="colors" style="background:black;" id="black"></div>
-      <div class="colors" style="background:grey" id="white">Eraser</div>
-
-
-      <div class="colors" id="clr">
-        <h3>Clear All</h3>
+      <div id="word">
+        {{#if game.currentUserIsTheGuestOfThisGame}}
+        <div id="palabra" style="display: none">{{data.word}}</div>
+        {{/if}}
+        {{#if game.currentUserIsTheCreatorOfThisGame}}
+        <h2>{{data.word}}</h2>
+  
+        {{/if}}
       </div>
-      <button class="button" id="start-button">Start Game</button>
+
+
     </div>
 
+    <div class="items">
 
-    <div class="players" "items">
-      <span>{{game.guest.username}}</span>
+      <div>
+        {{#if game.currentUserIsTheCreatorOfThisGame}}
+        <canvas id="canvas" width="500px" height="503px"></canvas>
+        <img id="canvasImg" src="" style="display:none">
+        {{/if}}
 
-      <img class="miniphoto" src="{{game.guest.picture.imgPath}}">
 
-      <div class="wordContainer">
-        <input type="text" id="guessed">
+
+        {{#if game.currentUserIsTheGuestOfThisGame}}
+        <img id="canvasImgGuest" src="{{game.imgGame}}" style="border: 2px solid">
+        <canvas id="canvas" width="500px" height="503px" style="display:none"></canvas>
+
+        {{/if}}
+      </div>
+
+      <div>
+
+        <div class="colum">
+
+          <div class="colors">Choose Color</div>
+          <div class="colors" style="background:green;" id="green"></div>
+          <div class="colors" style="background:blue;" id="blue"></div>
+          <div class="colors" style="background:red;" id="red"></div>
+          <div class="colors" style='background:yellow;' id='yellow'></div>
+          <div class="colors" style="background:orange;" id="orange"></div>
+          <div cclass="colors" style="background:black;" id="black"></div>
+          <div class="colors" style="background:grey" id="white">Eraser</div>
+
+
+          <div class="colors" id="clr">
+            <h3>Clear All</h3>
+          </div>
+          <button class="button" id="start-button">Start Game</button>
+        </div>
+      </div>
+
+
+      <div class="players">
+        <span>{{game.guest.username}}</span>
+
+        <img class="miniphoto" src="{{game.guest.picture.imgPath}}">
+        {{#if game.currentUserIsTheGuestOfThisGame}}
+        <div>
+          <p style="font-size: 12px">{{data.definition}}</p>
+        </div>
+        {{/if}}
+        <div class="wordContainer">
+          <input class="box2" type="text" id="guessed">
+        </div>
 
       </div>
     </div>
+
   </div>
-  <input type="text" id="guessed">
-</div>
 
-<div>
+</body>
 
-</div>
-</div>
 
 <script>
   var currentGameID = `{{game._id}}`
