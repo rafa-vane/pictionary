@@ -93,6 +93,19 @@ return unirest.get("https://wordsapiv1.p.rapidapi.com/words/?random=true")
 
 }
 
+
+router.get("/gameDetails/:id", (req, res) => {
+  Game
+    .findById(req.params.id)
+    .then(gameDetails => res.json(gameDetails))
+})
+
+router.get("/gameImageData/:id", (req, res) => {
+  Game
+    .findById(req.params.id)
+    .then(gameDetails => res.json(gameDetails.imgGame))
+})
+
 router.post("/gamePage", (req, res, next) => {
   User.findOne({ username: req.body.guest })
     .then((guest) => {
@@ -119,9 +132,9 @@ router.post("/gamePage", (req, res, next) => {
 
 router.post("/canvasImg/:idImg", (req, res, next) => {
   //console.log((Object.keys(req.body))[0])
-  Game.findByIdAndUpdate(req.params.idImg, { imgGame: (Object.keys(req.body))[0] }, { new: true })
+  Game.findByIdAndUpdate(req.params.idImg, { imgGame: req.body.imageData }, { new: true })
     .then((fotos) => {
-      //console.log(fotos.imgGame)
+      res.json({imagePayloadUpdated: true, timestamp: new Date()})
     }).catch((err) => console.log(err))
 });
 

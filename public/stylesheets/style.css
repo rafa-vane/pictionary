@@ -67,17 +67,33 @@ h2 {
   display: flex;
   flex-direction: column;
   width: 300px;
-  height: 10px; }
+  height: 300px; }
 
 .list {
   text-decoration: none;
-  list-style-type: circle; }
+  list-style-type: circle;
+  color: grey; }
+
+li {
+  margin-bottom: 10px; }
+
+li:last-child::after {
+  color: #00B7FF;
+  content: "{{NEW}}"; }
 
 .gamesInvited {
   text-align: center;
   width: 30%;
   display: flex;
-  align-content: center; }
+  align-content: center;
+  flex-direction: column;
+  font-size: 15px;
+  margin-left: 50px; }
+
+.tittle {
+  font-size: 20px;
+  color: gray;
+  -webkit-text-stroke: .5px black; }
 
 label {
   margin-top: 10px;
@@ -92,10 +108,20 @@ label {
   padding: 10px;
   font-size: 15px; }
 
+.box2 {
+  margin-bottom: 10px;
+  text-align: center;
+  padding: 10px;
+  font-size: 15px;
+  display: flex;
+  align-content: flex-end; }
+
 .photo {
-  border-radius: 150px;
   height: 300px;
-  width: 300px; }
+  width: 300px;
+  padding: 20px;
+  border: 1px grey;
+  border-style: dotted; }
 
 .button {
   display: inline-block;
@@ -137,7 +163,8 @@ label {
   font-size: 15px;
   text-align: center;
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  align-content: center; }
 
 .miniphoto {
   width: 80px;
@@ -154,6 +181,9 @@ label {
   margin-right: 40px;
   background: #e7e7e7; }
 
+.colum {
+  height: 510px; }
+
 .players {
   width: 250px;
   border: 3px solid black;
@@ -164,9 +194,9 @@ label {
   display: flex;
   flex-direction: column;
   align-content: flex-end;
-  margin-left: 150px;
+  margin-left: 80px;
   width: 300px;
-  height: 10px;
+  height: 300px;
   text-align: center; }
 
 #form-container {
@@ -217,5 +247,19 @@ button:hover {
 
 .gamepage {
   background: url("../images/draw copia.jpg"); }
+
+#word {
+  display: flex;
+  font-size: 20px;
+  padding: 12px; }
+
+.wordContainer {
+  display: flex;
+  margin-top: 120%;
+  margin-left: 10%;
+  width: 70%; }
+
+.sWord {
+  margin-left: 15%; }
 
 /*# sourceMappingURL=style.css.map */
