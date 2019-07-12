@@ -6,7 +6,8 @@ const gameSchema = new Schema({
   guest: { type: Schema.Types.ObjectId, ref: "User" },
   winner: String,
   state: { type: String, enum: ["active", "inactive", "finished"], default: "inactive" },
-  imgGame: String
+  imgGame: String,
+  word: String,
 }, {
     timestamps: {
       createdAt: 'created_at',
