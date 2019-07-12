@@ -181,12 +181,9 @@ label {
   margin-right: 40px;
   background: #e7e7e7; }
 
-<<<<<<< HEAD
-=======
 .colum {
   height: 510px; }
 
->>>>>>> 367c00d9f64380bc429657fd3c9009bea45104d3
 .players {
   width: 250px;
   border: 3px solid black;
@@ -251,8 +248,6 @@ button:hover {
 .gamepage {
   background: url("../images/draw copia.jpg"); }
 
-<<<<<<< HEAD
-=======
 #word {
   display: flex;
   font-size: 20px;
@@ -267,5 +262,4 @@ button:hover {
 .sWord {
   margin-left: 15%; }
 
->>>>>>> 367c00d9f64380bc429657fd3c9009bea45104d3
 /*# sourceMappingURL=style.css.map */

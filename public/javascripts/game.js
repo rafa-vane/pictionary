@@ -23,6 +23,8 @@ class Game {
     this.guessedWord = undefined;
     this.inputField = undefined;
     this.idImage = undefined;
+  
+
   }
 
   init = () => {
@@ -100,23 +102,23 @@ class Game {
 
     if (document.getElementById("canvasImg") !== null) {
       this.dataURL = this.canvasDOMEl.toDataURL();
-    document.getElementById("canvasImg").src = this.dataURL;
+      document.getElementById("canvasImg").src = this.dataURL;
 
-    this.idImage = (this.canvasDOMEl.baseURI).split("/")[4];
+      this.idImage = (this.canvasDOMEl.baseURI).split("/")[4];
 
-    axios.post(`http://localhost:3000/canvasImg/${this.idImage}`, {imageData: this.dataURL}) 
+      axios.post(`http://localhost:3000/canvasImg/${this.idImage}`, { imageData: this.dataURL })
     }
- 
-    
-   
-  }
-  
 
-drawGuest = () => {
-  axios.get(`/gameImageData/${currentGameID}`).then(gameData => {
-    document.getElementById("canvasImgGuest").src = gameData.data
-  })
-}
+
+
+  }
+
+
+  drawGuest = () => {
+    axios.get(`/gameImageData/${currentGameID}`).then(gameData => {
+      document.getElementById("canvasImgGuest").src = gameData.data
+    })
+  }
 
 
 
@@ -153,7 +155,7 @@ drawGuest = () => {
   }
 
   wordComparison = () => {
-    this.word = document.getElementById("word").innerHTML
+    this.word = document.getElementById("palabra").innerHTML
     this.guessedWord = this.inputField.value
     if (this.word.match(/^[A-Za-z ]+$/) == this.guessedWord.match(/^[A-Za-z ]+$/)) {
       this.stop()
@@ -165,5 +167,9 @@ drawGuest = () => {
     this.canvasDOMEl = undefined
     document.getElementById("h1").innerHTML = "You have Won!!"
   }
+
+  
+
+
 
 }
