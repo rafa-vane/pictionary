@@ -7,7 +7,7 @@ const gameSchema = new Schema({
   winner: String,
   state: { type: String, enum: ["active", "inactive", "finished"], default: "inactive" },
   imgGame: String,
-  word: String,
+  randomThing: String,
 }, {
     timestamps: {
       createdAt: 'created_at',
