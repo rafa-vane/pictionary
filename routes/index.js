@@ -131,7 +131,7 @@ router.post("/gamePage", (req, res, next) => {
 });
 
 router.post("/canvasImg/:idImg", (req, res, next) => {
-  //console.log((Object.keys(req.body))[0])
+
   Game.findByIdAndUpdate(req.params.idImg, { imgGame: req.body.imageData }, { new: true })
     .then((fotos) => {
       res.json({imagePayloadUpdated: true, timestamp: new Date()})
