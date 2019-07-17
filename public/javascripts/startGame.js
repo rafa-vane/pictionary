@@ -5,7 +5,7 @@ window.onload = () => {
   };
 
   startGame = () => {
-    game.init()
+      game.init()
   }
 };
 

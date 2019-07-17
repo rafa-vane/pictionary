@@ -106,7 +106,7 @@ class Game {
 
       this.idImage = (this.canvasDOMEl.baseURI).split("/")[4];
 
-      axios.post(`http://localhost:3000/canvasImg/${this.idImage}`, { imageData: this.dataURL })
+      axios.post(`${process.env.PORT}/canvasImg/${this.idImage}`, { imageData: this.dataURL })
     }
 
 
@@ -159,7 +159,7 @@ class Game {
     this.guessedWord = this.inputField.value
     if (this.word.match(/^[A-Za-z ]+$/) == this.guessedWord.match(/^[A-Za-z ]+$/)) {
       this.stop()
-    }
+    } 
   }
 
   stop = () => {

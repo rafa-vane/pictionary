@@ -12,6 +12,8 @@ const MongoStore = require('connect-mongo')(session);
 const flash      = require("connect-flash");
 
 
+var port = process.env.PORT
+
 mongoose
   .connect(process.env.BB_DD, {useNewUrlParser: true})
   .then(x => {
