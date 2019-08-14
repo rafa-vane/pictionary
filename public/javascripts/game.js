@@ -106,11 +106,8 @@ class Game {
 
       this.idImage = (this.canvasDOMEl.baseURI).split("/")[4];
 
-      axios.post(`${process.env.PORT}/canvasImg/${this.idImage}`, { imageData: this.dataURL })
+      axios.post(`${process.env.HBS_APP_URL}/canvasImg/${this.idImage}`, { imageData: this.dataURL })
     }
-
-
-
   }
 
 
